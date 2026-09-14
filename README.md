@@ -163,3 +163,4 @@ git push -u origin HEAD:main
 
 All rights reserved. This is the marketing site for a paid, closed-source
 product; it is published here to be deployed, not to be reused.
+# ruyi-waitlist
