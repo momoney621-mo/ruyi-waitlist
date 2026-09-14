@@ -1,0 +1,200 @@
+/*
+ * The policy pages. Same ink and the same type as the waitlist, set as one
+ * readable column — these are documents, not another landing page.
+ */
+
+.doc-page {
+  background: var(--black);
+}
+
+.doc-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(255, 255, 255, 0.05), transparent 62%),
+    var(--black);
+}
+
+.doc {
+  position: relative;
+  z-index: 1;
+  width: min(46rem, 100% - var(--gut) * 2);
+  margin: 0 auto;
+  padding: clamp(7rem, 16vh, 10rem) 0 clamp(4rem, 9vh, 6rem);
+}
+
+.doc-back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  margin-bottom: 2.25rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  text-decoration-color: var(--ink-4);
+}
+
+.doc-back:hover,
+.doc-back:focus-visible {
+  color: var(--ink);
+}
+
+.doc h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.1rem, 1.4rem + 3vw, 3.4rem);
+  font-variation-settings: "opsz" 40;
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -0.024em;
+}
+
+.doc-date {
+  margin: 1rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+}
+
+.doc-lede {
+  margin: 2rem 0 0;
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 18;
+  font-size: clamp(1.05rem, 0.98rem + 0.4vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--ink-1);
+}
+
+.doc h2 {
+  margin: 3rem 0 0.9rem;
+  padding-top: 1.1rem;
+  border-top: var(--rule) solid var(--line);
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 24;
+  font-size: 1.35rem;
+  font-weight: 300;
+  letter-spacing: -0.014em;
+}
+
+.doc h3 {
+  margin: 1.8rem 0 0.5rem;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.doc p,
+.doc li {
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+  line-height: 1.72;
+}
+
+.doc p {
+  margin: 0 0 1rem;
+}
+
+.doc ul,
+.doc ol {
+  margin: 0 0 1rem;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.doc li::marker {
+  color: var(--ink-4);
+}
+
+.doc strong {
+  font-weight: 500;
+  color: var(--ink-1);
+}
+
+.doc a {
+  color: var(--ink-1);
+  text-decoration-color: var(--ink-4);
+}
+
+.doc a:hover,
+.doc a:focus-visible {
+  color: var(--ink);
+}
+
+/* the one place a policy states something the reader should not skim past */
+.doc-callout {
+  margin: 1.5rem 0;
+  padding: 1rem 1.15rem;
+  border-left: 2px solid var(--line-strong);
+  background: var(--wash);
+}
+
+.doc-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.doc-table {
+  width: 100%;
+  margin: 0 0 1.25rem;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.doc-table th {
+  padding: 0 0.9rem 0.55rem 0;
+  border-bottom: var(--rule) solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  vertical-align: bottom;
+}
+
+.doc-table td {
+  padding: 0.65rem 0.9rem 0.65rem 0;
+  border-bottom: var(--rule) solid var(--line-soft);
+  color: var(--ink-2);
+  vertical-align: top;
+}
+
+.doc-table td:first-child {
+  color: var(--ink-1);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .doc-table,
+  .doc-table tbody,
+  .doc-table tr,
+  .doc-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .doc-table thead {
+    display: none;
+  }
+
+  .doc-table tr {
+    padding: 0.75rem 0;
+    border-bottom: var(--rule) solid var(--line-soft);
+  }
+
+  .doc-table td {
+    padding: 0;
+    border: 0;
+  }
+
+  .doc-table td:first-child {
+    margin-bottom: 0.2rem;
+    white-space: normal;
+  }
+}

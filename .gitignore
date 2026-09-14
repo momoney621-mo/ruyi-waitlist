@@ -1,0 +1,11 @@
+# There is no build and there are no dependencies. This is here for the tools
+# that assume otherwise.
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Deployment providers
+.vercel/
+.netlify/
+.wrangler/

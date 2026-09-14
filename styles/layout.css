@@ -1,0 +1,452 @@
+/*
+ * Layout: the fixed cloud field, the chrome around it, and the editorial grid
+ * every chapter sits on. Chapters are separated by rhythm and hairlines
+ * rather than by boxes, so the page reads as one continuous column.
+ */
+
+/* ── the field ──────────────────────────────────────────────────────── */
+
+.field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cloud-field {
+  overflow: hidden;
+}
+
+.cloud-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.parallax-cloud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: min(32rem, 54vw);
+  height: auto;
+  will-change: transform;
+  transform-origin: center;
+  filter: saturate(1.08) brightness(0.94);
+  transition: opacity 0.8s var(--ease), filter 0.8s var(--ease);
+}
+
+.cloud-field[data-formation="drift"] .parallax-cloud {
+  filter: saturate(0.96) brightness(0.78);
+}
+
+@media (max-width: 620px) {
+  .parallax-cloud {
+    max-width: 55vw;
+  }
+
+  .parallax-cloud[data-cloud="4"],
+  .parallax-cloud[data-cloud="7"],
+  .parallax-cloud[data-cloud="8"] {
+    display: none;
+  }
+
+  .hero .scroll-cue {
+    display: none;
+  }
+
+  .cloud-field .field-veil {
+    background:
+      radial-gradient(120% 90% at 42% 38%, rgba(5, 5, 6, 0.42) 10%, rgba(5, 5, 6, 0.64) 72%, rgba(5, 5, 6, 0.88) 100%),
+      linear-gradient(to bottom, rgba(5, 5, 6, 0.4), transparent 30%, transparent 72%, rgba(5, 5, 6, 0.68));
+  }
+}
+
+/* a soft centre-out vignette so type always has ground under it */
+.field-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(105% 85% at 43% 40%, rgba(5, 5, 6, 0.15) 18%, rgba(5, 5, 6, 0.48) 69%, rgba(5, 5, 6, 0.86) 100%),
+    linear-gradient(to bottom, rgba(5, 5, 6, 0.32), transparent 26%, transparent 78%, rgba(5, 5, 6, 0.58));
+}
+
+/* fine grain kills the banding a black gradient always shows */
+.field-grain {
+  position: absolute;
+  inset: -50%;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 6s steps(6) infinite;
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -2%); }
+  80% { transform: translate(3%, 1%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ── chrome ─────────────────────────────────────────────────────────── */
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 1px;
+  background: var(--line-soft);
+}
+
+.progress i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--ink);
+  transform-origin: left;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.05rem var(--gut);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: linear-gradient(to bottom, rgba(5, 5, 6, 0.82), rgba(5, 5, 6, 0));
+  transition:
+    transform 0.5s var(--ease-out),
+    opacity 0.4s var(--ease);
+}
+
+.topbar[data-hidden="true"] {
+  transform: translateY(-110%);
+  opacity: 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand-cjk {
+  font-family: var(--cjk);
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+}
+
+.brand-latin {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 20;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+  color: var(--ink-2);
+}
+
+.topnav {
+  display: flex;
+  gap: 1.6rem;
+  margin-left: auto;
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+}
+
+.topnav a {
+  text-decoration: none;
+  transition: color 0.3s var(--ease);
+}
+
+.topnav a:hover,
+.topnav a.is-current {
+  color: var(--ink);
+}
+
+@media (max-width: 860px) {
+  .topnav {
+    display: none;
+  }
+
+  .topbar .btn-sm {
+    margin-left: auto;
+  }
+}
+
+/* the chapter rail: an index, not navigation */
+.chapters {
+  position: fixed;
+  left: max(1.1rem, calc(var(--gut) - 3.4rem));
+  top: 50%;
+  z-index: 40;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.chapters ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.72rem;
+}
+
+.chapters li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  transition: color 0.4s var(--ease);
+}
+
+.chapters li::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+  transition:
+    width 0.5s var(--ease-out),
+    background 0.4s var(--ease);
+}
+
+.chapters li span {
+  opacity: 0;
+  transform: translateX(-4px);
+  transition:
+    opacity 0.4s var(--ease),
+    transform 0.4s var(--ease-out);
+}
+
+.chapters li.is-current {
+  color: var(--ink);
+}
+
+.chapters li.is-current::before {
+  width: 26px;
+}
+
+.chapters li.is-current span {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 1240px) {
+  .chapters {
+    display: none;
+  }
+}
+
+/* ── the grid ───────────────────────────────────────────────────────── */
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.chapter {
+  position: relative;
+  padding: clamp(6rem, 13vh, 11rem) 0;
+}
+
+.chapter + .chapter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--gut);
+  right: var(--gut);
+  height: var(--rule);
+  background: linear-gradient(to right, var(--line), transparent 72%);
+}
+
+.shell {
+  width: min(78rem, 100% - var(--gut) * 2);
+  margin: 0 auto;
+}
+
+/* ── hero ───────────────────────────────────────────────────────────── */
+
+.hero {
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  padding-top: clamp(7rem, 16vh, 11rem);
+  padding-bottom: clamp(5rem, 10vh, 8rem);
+}
+
+.hero-inner {
+  width: min(78rem, 100% - var(--gut) * 2);
+  margin: 0 auto;
+}
+
+.hero .display {
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.hero .lede {
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.hero .hero-form {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.hero-facts {
+  display: grid;
+  /* min() so the track can collapse below 15rem rather than push the page wide */
+  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+  gap: 1.25rem clamp(1.5rem, 4vw, 3.5rem);
+  margin: 0;
+  padding: 1.5rem 0 0;
+  list-style: none;
+  border-top: var(--rule) solid var(--line-soft);
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  max-width: 62rem;
+}
+
+.hero-facts li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: baseline;
+}
+
+.hero-facts .num {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-4);
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 2.2rem;
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.scroll-cue i {
+  display: block;
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(to bottom, var(--ink-4), transparent);
+  animation: cue 2.6s var(--ease) infinite;
+  transform-origin: top;
+}
+
+@keyframes cue {
+  0% { transform: scaleY(0.15); opacity: 0; }
+  35% { opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* ── waitlist + footer ──────────────────────────────────────────────── */
+
+.footer {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 0 4rem;
+  border-top: var(--rule) solid var(--line-soft);
+}
+
+.footer-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 30rem) auto;
+  gap: 1.25rem 2.5rem;
+  align-items: baseline;
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+}
+
+.footer-row p {
+  margin: 0;
+}
+
+@media (max-width: 820px) {
+  .footer-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── the small print ────────────────────────────────────────────────── */
+
+/* Small, but never faint: these lines carry the disclosures a visitor is
+   entitled to read, so they stay above the 4.5:1 contrast floor. */
+.legal {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: var(--rule) solid var(--line-soft);
+  font-size: 0.75rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+  margin-bottom: 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* a 24px-tall hit area, which is the smallest WCAG 2.2 accepts */
+.legal-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  color: var(--ink-1);
+  text-decoration-color: var(--ink-4);
+}
+
+.legal-links a:hover,
+.legal-links a:focus-visible {
+  color: var(--ink);
+}
+
+.legal p {
+  margin: 0 0 0.5rem;
+  max-width: 62rem;
+}
+
+.legal p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-id {
+  padding-top: 0.5rem;
+  color: var(--ink-3);
+}
+
+.legal a {
+  color: inherit;
+}
+
+/* an unfilled obligation should be obvious to whoever deploys the page */
+[data-legal-unset] {
+  color: var(--ink-1);
+  text-decoration: underline wavy;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}

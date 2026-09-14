@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Ruyi — research papers, with receipts</title>
+    <meta
+      name="description"
+      content="Ruyi turns a research question into a traceable paper. Watch the agents work, then open any claim to its exact source passage."
+    />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ruyi — research papers, with receipts" />
+    <meta
+      property="og:description"
+      content="Watch a research question become a paper—and open any claim to its source."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..600;1,6..72,200..500&family=Instrument+Sans:ital,wght@0,400..600;1,400..500&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&text=%E5%A6%82%E6%84%8F&display=swap"
+    />
+
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+
+    <script type="module" src="scripts/main.js"></script>
+  </head>
+
+  <body>
+    <a class="skip" href="#hero">Skip to content</a>
+
+    <div class="field cloud-field" id="cloud-field" aria-hidden="true">
+      <div class="cloud-layer"></div>
+      <div class="field-veil"></div>
+      <div class="field-grain"></div>
+    </div>
+
+    <div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+
+    <header class="topbar">
+      <a class="brand" href="#hero" aria-label="Ruyi, home">
+        <span class="brand-cjk">如意</span>
+        <span class="brand-latin">Ruyi</span>
+      </a>
+      <nav class="topnav" aria-label="Page navigation">
+        <a href="#features">Why Ruyi</a>
+        <a href="#waitlist">Waitlist</a>
+      </nav>
+      <a class="btn btn-sm" href="#waitlist">Join the waitlist</a>
+    </header>
+
+    <aside class="chapters" aria-hidden="true">
+      <ol id="chapter-rail"></ol>
+    </aside>
+
+    <main>
+      <section id="hero" class="chapter hero" data-field="cloud" data-chapter="Ruyi">
+        <div class="hero-inner">
+          <p class="eyebrow reveal">Research papers, with receipts · private beta</p>
+
+          <h1 class="display reveal">
+            From one question<br />
+            to a paper <em>you can defend.</em>
+          </h1>
+
+          <p class="lede reveal">
+            Ruyi researches the literature, runs the analysis, and helps write a manuscript where every claim opens to its source.
+          </p>
+
+          <form id="waitlist" class="waitlist-form waitlist-form-full hero-form reveal" data-waitlist novalidate>
+            <div class="field-row">
+              <label for="hero-name">Name</label>
+              <input id="hero-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            </div>
+            <div class="field-row">
+              <label for="hero-email">Email</label>
+              <input
+                id="hero-email"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div class="field-row">
+              <label for="hero-role">You are</label>
+              <select id="hero-role" name="role">
+                <option>A graduate student</option>
+                <option>A postdoc or faculty member</option>
+                <option>An industry researcher</option>
+                <option>A high-school student entering ISEF</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field-row">
+              <label for="hero-field">Field</label>
+              <input
+                id="hero-field"
+                name="field"
+                type="text"
+                placeholder="materials chemistry, ML systems, …"
+              />
+            </div>
+            <input class="pot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <label class="opt-in">
+              <input type="checkbox" name="updates" />
+              <span>Also send me occasional product updates.</span>
+            </label>
+
+            <button class="btn" type="submit">Join the waitlist</button>
+            <p class="form-note" data-waitlist-note aria-live="polite">One email when the beta opens.</p>
+
+            <p class="form-terms">
+              We use your name, email, role and field only to run this waitlist and to tell you when the beta
+              opens. We never sell or share them, and we delete your entry whenever you ask. By joining you
+              confirm you are 16 or older and agree to the <a href="terms.html">Terms</a> and
+              <a href="privacy.html">Privacy Policy</a>.
+            </p>
+          </form>
+
+          <ul class="hero-facts reveal">
+            <li><span class="num">01</span> Watch each research step.</li>
+            <li><span class="num">02</span> Open every claim to its quote.</li>
+            <li><span class="num">03</span> Keep your draft under your control.</li>
+          </ul>
+        </div>
+
+        <div class="scroll-cue reveal" aria-hidden="true">
+          <span>Why Ruyi</span>
+          <i></i>
+        </div>
+      </section>
+
+      <section id="features" class="chapter features" data-field="drift" data-chapter="Why Ruyi">
+        <div class="shell">
+          <p class="kicker reveal">Only what matters</p>
+          <h2 class="display-2 reveal">The work stays visible.</h2>
+
+          <div class="feature-showcase">
+            <article class="feature-spot feature-graph reveal">
+              <div class="feature-visual mini-graph" aria-hidden="true">
+                <svg viewBox="0 0 600 250" preserveAspectRatio="none">
+                  <path d="M300 40 C300 75 130 72 130 115" />
+                  <path d="M300 40 C300 75 300 72 300 115" />
+                  <path d="M300 40 C300 75 470 72 470 115" />
+                  <path d="M130 145 C130 185 235 175 250 210" />
+                  <path d="M300 145 C300 180 275 180 250 210" />
+                  <path d="M470 145 C470 185 285 175 250 210" />
+                  <path d="M285 220 L410 220" />
+                </svg>
+                <span class="mini-node node-lead">Lead</span>
+                <span class="mini-node node-lane node-lane-1">Search</span>
+                <span class="mini-node node-lane node-lane-2">Read</span>
+                <span class="mini-node node-lane node-lane-3">Compare</span>
+                <span class="mini-node node-write">Write</span>
+                <span class="mini-node node-verify">Verify</span>
+              </div>
+              <div class="feature-copy">
+                <span class="feature-n">01</span>
+                <h3>Watch the research happen.</h3>
+                <p>A live graph shows what each agent is doing, what it found, and why the run stopped.</p>
+              </div>
+            </article>
+
+            <article class="feature-spot feature-evidence reveal">
+              <div class="feature-visual evidence-preview" aria-hidden="true">
+                <p>
+                  Error rises on held-out chemistries
+                  <span class="claim-mark">when the split removes whole element families.</span>
+                </p>
+                <div class="evidence-slip">
+                  <span>Supported · p. 7</span>
+                  <blockquote>“Errors roughly double when whole element sets are withheld.”</blockquote>
+                </div>
+              </div>
+              <div class="feature-copy">
+                <span class="feature-n">02</span>
+                <h3>Open any claim to its source.</h3>
+                <p>Each factual sentence keeps its verdict, page number, and exact quote attached.</p>
+              </div>
+            </article>
+
+            <article class="feature-spot feature-paper reveal">
+              <div class="feature-visual paper-preview" aria-hidden="true">
+                <span class="paper-label">paper/ · Results</span>
+                <p>The held-out split increased MAE to <span class="result-trace">0.184 eV ↗ run-07</span>.</p>
+                <p><span class="change-old">These results prove transfer.</span> <span class="change-new">These results suggest limited transfer across chemistries.</span></p>
+                <div class="paper-actions"><span>Accept</span><span>Reject</span><span>Undo pass</span></div>
+              </div>
+              <div class="feature-copy">
+                <span class="feature-n">03</span>
+                <h3>Finish in the manuscript.</h3>
+                <p>Review suggestions paragraph by paragraph, and trace every reported number back to its run.</p>
+              </div>
+            </article>
+          </div>
+
+          <p class="access-note reveal">
+            When a source needs a sign-in, you open it in Ruyi’s dedicated browser profile. Ruyi never asks for or enters your password.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell">
+        <div class="footer-row">
+          <span class="brand-cjk">如意</span>
+          <p>Named for the Monkey King’s staff—the one that grows to the size of the job.</p>
+          <a class="quiet" href="#waitlist">Join the private beta ↑</a>
+        </div>
+
+        <div class="legal">
+          <nav class="legal-links" aria-label="Legal">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="accessibility.html">Accessibility</a>
+            <a href="mailto:" data-legal-mailto>Contact</a>
+          </nav>
+
+          <p>
+            Ruyi is unreleased software in private beta. Everything described here is what we are building, not
+            a promise of availability, a specification, or a claim about results. The papers, quotes and figures
+            shown are illustrations, not a record of a real run. Joining the waitlist does not create an account
+            or reserve a licence.
+          </p>
+          <p>
+            The waitlist stores only your name, email, role and field. We do not sell or share personal
+            information, we set no cookies, and we run no analytics or advertising trackers. Ask us and we will
+            delete your entry. The list is for people aged 16 or over.
+          </p>
+          <p>
+            Ruyi never asks for your university or publisher password, and never bypasses a paywall. We aim to
+            meet WCAG 2.2 AA — if any of this is hard to use, tell us and we will fix it.
+          </p>
+          <p class="legal-id">
+            © <span data-legal-year>2026</span>
+            <span data-legal="operator-name">operator name not set — see scripts/config.js</span> ·
+            <span data-legal="operator-address">postal address not set — see scripts/config.js</span> ·
+            <span data-legal="operator-email">contact address not set — see scripts/config.js</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

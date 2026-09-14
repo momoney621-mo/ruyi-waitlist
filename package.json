@@ -1,0 +1,14 @@
+{
+  "name": "ruyi-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "The Ruyi waitlist site: a static, dependency-free page whose signups land in Supabase.",
+  "type": "module",
+  "scripts": {
+    "dev": "node serve.mjs",
+    "start": "node serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

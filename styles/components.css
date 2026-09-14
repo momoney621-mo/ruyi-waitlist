@@ -1,0 +1,457 @@
+/*
+ * Components: the two surfaces this page actually has — the three product
+ * illustrations in "Why Ruyi", and the signup itself. The illustrations are
+ * drawn from the app's real panels so the page does not promise a shape the
+ * product does not have.
+ */
+
+/* ── the three reasons to use Ruyi ──────────────────────────────────── */
+
+.feature-showcase {
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+  border-top: var(--rule) solid var(--line);
+}
+
+.feature-spot {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: center;
+  padding: clamp(3rem, 8vw, 7rem) 0;
+  border-bottom: var(--rule) solid var(--line-soft);
+}
+
+.feature-spot:nth-child(even) {
+  grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1.25fr);
+}
+
+.feature-spot:nth-child(even) .feature-visual {
+  order: 2;
+}
+
+.feature-copy {
+  max-width: 27rem;
+}
+
+.feature-n {
+  display: block;
+  margin-bottom: 1rem;
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-5);
+}
+
+.feature-copy h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.feature-copy p {
+  margin: 0;
+  max-width: 25rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.feature-visual {
+  position: relative;
+  min-width: 0;
+}
+
+/* the graph is an illustration now, not another interface to learn */
+.mini-graph {
+  min-height: 19rem;
+}
+
+.mini-graph svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mini-graph path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.28);
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+}
+
+.mini-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0.4rem 0.7rem;
+  border: var(--rule) solid var(--line-strong);
+  border-radius: 8px;
+  background: rgba(7, 7, 8, 0.8);
+  font-size: 0.72rem;
+  color: var(--ink-2);
+  backdrop-filter: blur(10px);
+}
+
+.node-lead { left: 50%; top: 12%; color: var(--ink); }
+.node-lane-1 { left: 21.7%; top: 52%; }
+.node-lane-2 { left: 50%; top: 52%; }
+.node-lane-3 { left: 78.3%; top: 52%; }
+.node-write { left: 41.7%; top: 88%; color: var(--ink); }
+.node-verify { left: 68.3%; top: 88%; border-color: var(--ink-2); color: var(--ink); }
+
+.evidence-preview {
+  max-width: 38rem;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border-left: 1px solid var(--line-strong);
+  background: linear-gradient(100deg, var(--wash), transparent 80%);
+}
+
+.evidence-preview > p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 1.25;
+  color: var(--ink-2);
+}
+
+.claim-mark {
+  color: var(--ink);
+  text-decoration: underline double var(--ink-2);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.evidence-slip {
+  margin: 2rem 0 0 clamp(1rem, 6vw, 4rem);
+  padding-top: 1rem;
+  border-top: var(--rule) solid var(--line);
+}
+
+.evidence-slip > span,
+.paper-label {
+  font-family: var(--mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.evidence-slip blockquote {
+  margin: 0.8rem 0 0;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.paper-preview {
+  max-width: 40rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-top: var(--rule) solid var(--line);
+  border-bottom: var(--rule) solid var(--line);
+  background: rgba(7, 7, 8, 0.4);
+}
+
+.paper-preview p {
+  margin: 1.4rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.result-trace {
+  border-bottom: 1px solid var(--ink-2);
+  color: var(--ink);
+}
+
+.change-old {
+  color: var(--ink-4);
+  text-decoration: line-through;
+}
+
+.change-new {
+  color: var(--ink);
+}
+
+.paper-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 0.8rem;
+  border-top: var(--rule) solid var(--line-soft);
+  font-family: var(--mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.access-note {
+  max-width: 51rem;
+  margin: clamp(2.5rem, 6vw, 5rem) 0 0 auto;
+  padding-left: 1.5rem;
+  border-left: 1px solid var(--line-strong);
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.5vw, 1.7rem);
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+@media (max-width: 760px) {
+  .feature-spot,
+  .feature-spot:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .feature-spot:nth-child(even) .feature-visual {
+    order: 0;
+  }
+
+  .mini-graph {
+    min-height: 15rem;
+  }
+}
+
+/* ── waitlist form ──────────────────────────────────────────────────── */
+
+.waitlist-form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 34rem;
+}
+
+.hero-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+  align-items: center;
+  max-width: 48rem;
+}
+
+.hero-form .field-row {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.25rem;
+}
+
+.hero-form .field-row label {
+  font-size: 0.6875rem;
+}
+
+.hero-form input,
+.hero-form select {
+  padding-block: 0.86rem;
+  font-size: 1.025rem;
+}
+
+.hero-form.waitlist-form-full .btn {
+  justify-self: start;
+  margin-top: 0.65rem;
+  padding: 0.86rem 1.65rem;
+  font-size: 0.925rem;
+}
+
+.hero-form .form-note {
+  grid-column: 2;
+  align-self: center;
+  margin-top: 0.65rem;
+}
+
+.hero-form .opt-in,
+.hero-form .form-terms {
+  grid-column: 1 / -1;
+}
+
+/* consent is unticked by default and separate from the signup itself, so one
+   is never bundled into the other */
+.opt-in {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 24px;
+  margin-top: 0.35rem;
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.opt-in input {
+  appearance: none;
+  flex: none;
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  border: var(--rule) solid var(--line-strong);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+
+.opt-in input:checked {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.opt-in input:checked::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 8px;
+  margin: 1.5px auto 0;
+  border: solid #050506;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(43deg);
+}
+
+.opt-in:hover {
+  color: var(--ink-1);
+}
+
+/* the notice at collection: small, but never below the contrast floor */
+.form-terms {
+  max-width: 42rem;
+  margin: 0.9rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.form-terms a {
+  color: var(--ink-1);
+  text-decoration-color: var(--ink-4);
+}
+
+.form-terms a:hover,
+.form-terms a:focus-visible {
+  color: var(--ink);
+}
+
+input[type="email"],
+input[type="text"],
+select {
+  appearance: none;
+  width: 100%;
+  padding: 0.72rem 0.1rem;
+  border: 0;
+  border-bottom: var(--rule) solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.35s var(--ease);
+}
+
+select {
+  padding-right: 1.4rem;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink-3) 50%),
+    linear-gradient(135deg, var(--ink-3) 50%, transparent 50%);
+  background-position:
+    right 8px center,
+    right 3px center;
+  background-size:
+    5px 5px,
+    5px 5px;
+  background-repeat: no-repeat;
+}
+
+select option {
+  background: #0a0a0c;
+  color: #fff;
+}
+
+input::placeholder {
+  color: var(--ink-4);
+  transition: color 0.2s var(--ease);
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+input:focus,
+select:focus {
+  outline: 0;
+  border-bottom-color: var(--ink);
+}
+
+input:focus-visible,
+select:focus-visible {
+  outline: 0;
+  border-bottom-color: var(--ink);
+  box-shadow: 0 1px 0 var(--ink);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 0 1.25rem;
+  align-items: center;
+}
+
+.field-row label {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.waitlist-form-full .btn {
+  justify-self: start;
+  margin-top: 1rem;
+}
+
+.form-note {
+  margin: 0.4rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--ink-4);
+}
+
+.form-note[data-tone="ok"] {
+  color: var(--ink-1);
+}
+
+.form-note[data-tone="bad"] {
+  color: var(--ink-1);
+  text-decoration: underline wavy;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.waitlist-form.is-done input,
+.waitlist-form.is-done select,
+.waitlist-form.is-done .opt-in,
+.waitlist-form.is-done .btn {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.waitlist-form.is-done .form-note {
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  .hero-form {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-form .form-note {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}
