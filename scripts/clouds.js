@@ -51,12 +51,12 @@ export function createCloudField(host, { reducedMotion = false } = {}) {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    pointerX += (targetX - pointerX) * 0.045;
-    pointerY += (targetY - pointerY) * 0.045;
+    pointerX += (targetX - pointerX) * 0.07;
+    pointerY += (targetY - pointerY) * 0.07;
 
     for (const [i, cloud] of nodes.entries()) {
-      const sway = reducedMotion ? 0 : Math.sin(time * 0.0003 + i * 1.7) * 24 * cloud.depth;
-      const rise = reducedMotion ? 0 : Math.cos(time * 0.00024 + i * 2.1) * 14 * cloud.depth;
+      const sway = reducedMotion ? 0 : Math.sin(time * 0.00052 + i * 1.7) * 28 * cloud.depth;
+      const rise = reducedMotion ? 0 : Math.cos(time * 0.00042 + i * 2.1) * 16 * cloud.depth;
       const x = (cloud.x / 100) * width + pointerX * 72 * cloud.depth + sway * cloud.drift;
       const y =
         (cloud.y / 100) * height -
