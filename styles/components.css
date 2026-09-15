@@ -240,6 +240,17 @@
   gap: 1rem 1.5rem;
   align-items: center;
   max-width: 48rem;
+  padding: clamp(1.25rem, 2.8vw, 1.8rem);
+  border: var(--rule) solid rgba(255, 255, 255, 0.26);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018) 58%, transparent),
+    rgba(5, 5, 6, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.09) inset,
+    0 30px 90px -44px rgba(0, 0, 0, 0.95);
 }
 
 .hero-form .field-row {
