@@ -67,6 +67,9 @@ server.on("error", (err) => {
   throw err;
 });
 
-server.listen(PORT, "127.0.0.1", () => {
+// Bind beyond loopback so Cursor's browser/port forwarder can reach the
+// server across the container boundary. The site is still exposed only where
+// the development environment publishes this port.
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`the waitlist site is at http://localhost:${PORT}`);
 });
