@@ -12,8 +12,8 @@
  * are missing rather than inventing them.
  */
 
-export const SUPABASE_URL = "";
-export const SUPABASE_PUBLISHABLE_KEY = "";
+export const SUPABASE_URL = "https://zueafhjexremeyklpoyg.supabase.co";
+export const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_RYp2Hsx-8aS6a4XH9izrtA_X5xf2hmv";
 export const WAITLIST_TABLE = "waitlist_signups";
 
 export const OPERATOR = {
