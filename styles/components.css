@@ -241,15 +241,13 @@
   align-items: center;
   max-width: 48rem;
   padding: clamp(1.25rem, 2.8vw, 1.8rem);
-  border: var(--rule) solid rgba(255, 255, 255, 0.26);
+  border: var(--rule) solid rgba(255, 255, 255, 0.78);
   border-radius: 18px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018) 58%, transparent),
-    rgba(5, 5, 6, 0.72);
+  background: rgba(5, 5, 6, 0.94);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.09) inset,
+    0 0 30px rgba(255, 255, 255, 0.045),
     0 30px 90px -44px rgba(0, 0, 0, 0.95);
 }
 
@@ -260,6 +258,8 @@
 
 .hero-form .field-row label {
   font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--ink);
 }
 
 .hero-form input,
@@ -445,18 +445,6 @@ select:focus-visible {
   text-decoration: underline wavy;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.25em;
-}
-
-.waitlist-form.is-done input,
-.waitlist-form.is-done select,
-.waitlist-form.is-done .opt-in,
-.waitlist-form.is-done .btn {
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-.waitlist-form.is-done .form-note {
-  opacity: 1;
 }
 
 @media (max-width: 720px) {

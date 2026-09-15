@@ -23,11 +23,10 @@ export function mountWaitlist() {
 
   for (const form of forms) {
     const note = form.querySelector("[data-waitlist-note]");
-    if (joined) done(form, note, joined, true);
+    if (joined) done(note, joined, true);
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      if (form.classList.contains("is-done")) return;
 
       const data = Object.fromEntries(new FormData(form).entries());
       if (data.company) return; // a bot filled the hidden field
@@ -78,7 +77,7 @@ export function mountWaitlist() {
       }
 
       for (const f of forms) {
-        done(f, f.querySelector("[data-waitlist-note]"), stored, result === "duplicate");
+        done(f.querySelector("[data-waitlist-note]"), stored, result === "duplicate");
       }
     });
   }
@@ -114,9 +113,8 @@ function fail(note, message) {
   note.textContent = message;
 }
 
-function done(form, note, record, restored) {
+function done(note, record, restored) {
   const first = String(record.name || "").trim().split(/\s+/)[0];
-  form.classList.add("is-done");
   note.dataset.tone = "ok";
   note.textContent = restored
     ? `You are already on the list${first ? `, ${first}` : ""}.`
