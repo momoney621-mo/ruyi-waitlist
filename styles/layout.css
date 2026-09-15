@@ -434,11 +434,6 @@ main {
   margin-bottom: 0;
 }
 
-.legal-id {
-  padding-top: 0.5rem;
-  color: var(--ink-3);
-}
-
 .legal a {
   color: inherit;
 }
