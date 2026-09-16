@@ -241,14 +241,12 @@
   align-items: center;
   max-width: 48rem;
   padding: clamp(1.25rem, 2.8vw, 1.8rem);
-  border: var(--rule) solid rgba(255, 255, 255, 0.78);
+  border: var(--rule) solid #fff;
   border-radius: 18px;
-  background: rgba(5, 5, 6, 0.94);
+  background: #050506;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  box-shadow:
-    0 0 30px rgba(255, 255, 255, 0.045),
-    0 30px 90px -44px rgba(0, 0, 0, 0.95);
+  box-shadow: 0 30px 90px -44px rgba(0, 0, 0, 0.95);
 }
 
 .hero-form .field-row {
@@ -257,15 +255,21 @@
 }
 
 .hero-form .field-row label {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--ink);
 }
 
-.hero-form input,
+.hero-form input[type="email"],
+.hero-form input[type="text"],
 .hero-form select {
   padding-block: 0.86rem;
-  font-size: 1.025rem;
+  font-size: 1.075rem;
+  color: var(--ink);
+}
+
+.hero-form input::placeholder {
+  color: var(--ink-2);
 }
 
 .hero-form.waitlist-form-full .btn {
@@ -445,6 +449,17 @@ select:focus-visible {
   text-decoration: underline wavy;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.25em;
+}
+
+.waitlist-form.is-done input,
+.waitlist-form.is-done select {
+  opacity: 1;
+  color: var(--ink);
+  -webkit-text-fill-color: var(--ink);
+}
+
+.waitlist-form.is-done .btn {
+  opacity: 0.55;
 }
 
 @media (max-width: 720px) {
