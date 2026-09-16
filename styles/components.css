@@ -255,21 +255,14 @@
 }
 
 .hero-form .field-row label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--ink);
+  font-size: 0.6875rem;
 }
 
 .hero-form input[type="email"],
 .hero-form input[type="text"],
 .hero-form select {
   padding-block: 0.86rem;
-  font-size: 1.075rem;
-  color: var(--ink);
-}
-
-.hero-form input::placeholder {
-  color: var(--ink-2);
+  font-size: 1.025rem;
 }
 
 .hero-form.waitlist-form-full .btn {
@@ -453,9 +446,7 @@ select:focus-visible {
 
 .waitlist-form.is-done input,
 .waitlist-form.is-done select {
-  opacity: 1;
-  color: var(--ink);
-  -webkit-text-fill-color: var(--ink);
+  opacity: 0.35;
 }
 
 .waitlist-form.is-done .btn {
